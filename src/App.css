@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+html {
+  font-family: "Montserrat Alternates", sans-serif;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* CSS NAVBAR */
+.logo {
+  width: 10%;
+}
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(46, 46, 46);
+  height: 90px;
+  color: #fff;
+  padding: 15px;
+  text-decoration: none;
+}
+.logo-container {
+  padding-right: 15px;
+}
+.characters-btn,
+.comics-btn {
+  padding: 10px;
+  margin: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.characters-btn:hover,
+.comics-btn:hover {
+  background-color: #ec1d24;
+  border-radius: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* CSS CHARACTERCARDS */
+.charac-card-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 300px;
+  height: 400px;
+  background-color: #797474;
+  margin: 10px;
+  padding: 15px;
+}
+.charac-card-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background-color: aliceblue;
+
+  margin-top: 40px;
+  margin-bottom: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.charac-card-name {
+  font-weight: 700;
+  font-style: italic;
+  padding-bottom: 20px;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.charac-card-description {
+  font-size: 88%;
+  color: #fff;
+}
+
+/* CSS COMICCARDS */
+.comic-card-container {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  background-color: #797474;
+  margin: 10px;
+  padding: 15px;
+}
+.comic-card-img {
+  width: 160px;
+  height: 250px;
+  background-color: aliceblue;
+  margin-right: 30px;
+}
+
+.comic-card-name {
+  font-weight: 700;
+  font-style: italic;
+  padding-bottom: 20px;
+  color: #fff;
+}
+
+.comic-card-description {
+  font-size: 88%;
+  color: #fff;
 }
