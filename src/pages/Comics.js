@@ -25,13 +25,13 @@ const Comics = () => {
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
-    <div>
+    <div className="comics-list">
       {comics.map((comic, index) => {
         return (
           <div key={index}>
             <ComicsCard
               title={comic.title}
-              photo={comic.thumbnail.path}
+              photo={comic.thumbnail.path + "." + comic.thumbnail.extension}
               description={comic.description}
             />
           </div>

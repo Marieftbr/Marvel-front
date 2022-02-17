@@ -26,13 +26,15 @@ const Characters = () => {
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
-    <div>
+    <div className="character-list">
       {characters.map((character, index) => {
         return (
           <div key={index}>
             <Link to={`/character/${character._id}`}>
               <CharactersCard
-                photo={character.thumbnail.path}
+                photo={
+                  character.thumbnail.path + "." + character.thumbnail.extension
+                }
                 name={character.name}
                 description={character.description}
               />

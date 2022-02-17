@@ -7,7 +7,12 @@ const Nav = () => {
   return (
     <div className="nav-wrapper">
       <div className="logo-container">
-        <img className="logo" src={logo} alt="logo marvel" />
+        <img
+          className="logo"
+          src={logo}
+          alt="logo marvel"
+          onClick={() => navigate("/")}
+        />
       </div>
       <div className="characters-btn" onClick={() => navigate("/characters")}>
         Personnages

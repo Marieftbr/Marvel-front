@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
 import Character from "./pages/Character";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+library.add(faHeart);
 
 function App() {
   return (

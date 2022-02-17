@@ -1,6 +1,8 @@
 html {
   font-family: "Montserrat Alternates", sans-serif;
   box-sizing: border-box;
+  background-color: #333333;
+  color: #fff;
 }
 
 /* CSS NAVBAR */
@@ -11,7 +13,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(46, 46, 46);
+  background-color: #0d0d0d;
   height: 90px;
   color: #fff;
   padding: 15px;
@@ -33,6 +35,12 @@ html {
 }
 
 /* CSS CHARACTERCARDS */
+.character-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .charac-card-container {
   display: flex;
   flex-direction: column;
@@ -42,6 +50,8 @@ html {
   background-color: #797474;
   margin: 10px;
   padding: 15px;
+  box-shadow: #222 2px 2px 2px;
+  border-radius: 5px;
 }
 .charac-card-img {
   width: 160px;
@@ -66,6 +76,12 @@ html {
 }
 
 /* CSS COMICCARDS */
+.comics-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .comic-card-container {
   display: flex;
   align-items: center;
@@ -74,6 +90,7 @@ html {
   background-color: #797474;
   margin: 10px;
   padding: 15px;
+  box-shadow: #222 2px 2px 2px;
 }
 .comic-card-img {
   width: 160px;
@@ -92,4 +109,45 @@ html {
 .comic-card-description {
   font-size: 88%;
   color: #fff;
+}
+
+/* CSS COMICS FROM CHARACTER */
+.container-comic-form-charac {
+  background-color: #333333;
+  color: #fff;
+}
+
+.wrapper-comic-from-charac {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 33%;
+  padding: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: #222 2px 2px 2px;
+  background-color: #797474;
+}
+
+.title-character-comics {
+  font-size: 120%;
+  font-weight: 700;
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.image-character-comics {
+  width: 33%;
+}
+.description-character-comics {
+  font-size: 90%;
+  width: 80%;
+  text-align: center;
+}
+
+/* CSS FAVORIS */
+.favoris {
+  font-size: 20px;
 }
