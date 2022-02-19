@@ -26,22 +26,27 @@ const Characters = () => {
   return isLoading ? (
     <span>En cours de chargement</span>
   ) : (
-    <div className="character-list">
-      {characters.map((character, index) => {
-        return (
-          <div key={index}>
-            <Link to={`/character/${character._id}`}>
-              <CharactersCard
-                photo={
-                  character.thumbnail.path + "." + character.thumbnail.extension
-                }
-                name={character.name}
-                description={character.description}
-              />
-            </Link>
-          </div>
-        );
-      })}
+    <div className="characters-age">
+      <h1 className="title-page">Les personnages Marvel</h1>
+      <div className="character-list">
+        {characters.map((character, index) => {
+          return (
+            <div key={index}>
+              <Link to={`/character/${character._id}`}>
+                <CharactersCard
+                  photo={
+                    character.thumbnail.path +
+                    "." +
+                    character.thumbnail.extension
+                  }
+                  name={character.name}
+                  description={character.description}
+                />
+              </Link>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

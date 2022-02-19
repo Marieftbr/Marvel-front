@@ -35,6 +35,13 @@ html {
 }
 
 /* CSS CHARACTERCARDS */
+.title-page {
+  font-size: 130%;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
 .character-list {
   display: flex;
   align-items: center;
