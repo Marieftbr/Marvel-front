@@ -23,13 +23,15 @@ html {
   padding-right: 15px;
 }
 .characters-btn,
-.comics-btn {
+.comics-btn,
+.favoris-btn {
   padding: 10px;
   margin: 10px;
 }
 
 .characters-btn:hover,
-.comics-btn:hover {
+.comics-btn:hover,
+.favoris-btn:hover {
   background-color: #ec1d24;
   border-radius: 5px;
 }
@@ -69,6 +71,7 @@ html {
   padding: 15px;
   box-shadow: #222 2px 2px 2px;
   border-radius: 5px;
+  position: relative;
 }
 .charac-card-img {
   width: 160px;
@@ -166,5 +169,27 @@ html {
 
 /* CSS FAVORIS */
 .favoris {
-  font-size: 20px;
+  font-size: 40px;
+}
+
+.heart {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  z-index: 10;
+}
+
+.heart-empty {
+  color: #fff;
+}
+
+.heart-full {
+  color: #ec1d24;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.relative {
+  position: relative;
 }

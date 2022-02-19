@@ -21,7 +21,9 @@ const Nav = () => {
       <div className="comics-btn" onClick={() => navigate("/comics")}>
         Comics
       </div>
-      {favoris ? <div className="favoris-btn">Favoris</div> : ""}
+      <div className="favoris-btn" onClick={() => navigate("/favoris")}>
+        Favoris
+      </div>
     </div>
   );
 };

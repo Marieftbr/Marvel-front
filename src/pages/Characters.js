@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import CharactersCard from "../components/CharactersCard";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import Cookies from "js-cookie";
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
@@ -12,6 +13,31 @@ const Characters = () => {
   const [page, setPage] = useState(
     searchParams.get("page") ? parseInt(searchParams.get("page")) : 1
   );
+
+  const [favorites, setFavorites] = useState(
+    JSON.parse(Cookies.get("favoriteCharacters") || "[]")
+    // []
+  );
+
+  const addFavorite = (id) => {
+    if (!favorites.includes(id)) {
+      const newFavorites = [...favorites, id];
+      setFavorites(newFavorites);
+      Cookies.set("favoriteCharacters", JSON.stringify(newFavorites));
+    }
+  };
+
+  const removeFavorite = (id) => {
+    if (favorites.includes(id)) {
+      const newFavorites = favorites.filter((favoriteId) => favoriteId !== id);
+      setFavorites(newFavorites);
+      Cookies.set("favoriteCharacters", JSON.stringify(newFavorites));
+    }
+  };
+
+  const isFavorite = (id) => {
+    return favorites.includes(id);
+  };
 
   // Pour calculer le nombres de pages en tout
   const [totalPage, setTotalPage] = useState(1);
@@ -63,17 +89,17 @@ const Characters = () => {
         {characters.map((character, index) => {
           return (
             <div key={index}>
-              <Link to={`/character/${character._id}`}>
-                <CharactersCard
-                  photo={
-                    character.thumbnail.path +
-                    "." +
-                    character.thumbnail.extension
-                  }
-                  name={character.name}
-                  description={character.description}
-                />
-              </Link>
+              <CharactersCard
+                id={character._id}
+                photo={
+                  character.thumbnail.path + "." + character.thumbnail.extension
+                }
+                name={character.name}
+                description={character.description}
+                isFavorite={isFavorite(character._id)}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+              />
             </div>
           );
         })}

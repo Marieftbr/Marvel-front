@@ -3,6 +3,7 @@ import axios from "axios";
 import ComicsCard from "../components/ComicsCard";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../components/Pagination";
+import Cookies from "js-cookie";
 
 const Comics = () => {
   const [comics, setComics] = useState([]);
@@ -14,6 +15,27 @@ const Comics = () => {
   );
 
   const [totalPage, setTotalPage] = useState(1);
+
+  //Déclaration de Favoris
+  const [favorites, setFavorites] = useState(
+    JSON.parse(Cookies.get("favoriteComics") || "[]")
+  );
+
+  const addFavorite = (idToAdd) => {
+    const newFavorites = [...favorites, idToAdd];
+    setFavorites(newFavorites);
+    Cookies.set("favoriteComics", JSON.stringify(newFavorites));
+  };
+
+  const removeFavorite = (idToRemove) => {
+    const newFavorites = favorites.filter((element) => element !== idToRemove);
+    setFavorites(newFavorites);
+    Cookies.set("favoriteComics", JSON.stringify(newFavorites));
+  };
+
+  const isFavorite = (idToCheck) => {
+    return favorites.includes(idToCheck);
+  };
 
   const fetchComics = async (query) => {
     setSearchParams(query);
@@ -63,9 +85,13 @@ const Comics = () => {
           return (
             <div key={index}>
               <ComicsCard
+                id={comic._id}
                 title={comic.title}
                 photo={comic.thumbnail.path + "." + comic.thumbnail.extension}
                 description={comic.description}
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+                isFavorite={isFavorite(comic._id)}
               />
             </div>
           );
