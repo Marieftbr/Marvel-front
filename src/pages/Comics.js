@@ -4,6 +4,7 @@ import ComicsCard from "../components/ComicsCard";
 import { useSearchParams } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import Cookies from "js-cookie";
+import Loader from "../components/Loader";
 
 const Comics = () => {
   const [comics, setComics] = useState([]);
@@ -63,7 +64,7 @@ const Comics = () => {
   }, [search, page]);
 
   return isLoading ? (
-    <span>En cours de chargement</span>
+    <Loader />
   ) : (
     <div className="comic-container">
       <h1 className="title-page">Les comics Marvel</h1>

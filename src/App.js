@@ -7,14 +7,18 @@ import {
 } from "react-router-dom";
 
 import Nav from "./components/Nav";
-import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Comics from "./pages/Comics";
 import Character from "./pages/Character";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import {
+  faAngleRight,
+  faAngleLeft,
+  faHourglassEmpty,
+} from "@fortawesome/free-solid-svg-icons";
 import Favoris from "./pages/Favoris";
-library.add(faHeart);
+library.add(faHeart, faAngleRight, faAngleLeft, faHourglassEmpty);
 
 function App() {
   return (

@@ -2,8 +2,10 @@ import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import CharactersCard from "../components/CharactersCard";
+import Loader from "../components/Loader";
 
 const Favoris = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [favoriteCharactersIds, setFavoriteCharactersIds] = useState(
     JSON.parse(Cookies.get("favoriteCharacters") || "[]")
   );
@@ -18,6 +20,7 @@ const Favoris = () => {
       })
     );
     setFavoriteCharacters(responses.map((response) => response.data));
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -34,29 +37,40 @@ const Favoris = () => {
     }
   };
 
-  return (
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div>
       <div>
-        <h1>Mes personnages favoris</h1>
+        <h1 className="title-page">Mes personnages favoris</h1>
         <div className="character-list">
-          {favoriteCharacters.map((character) => {
-            return (
-              <div key={character._id}>
-                <CharactersCard
-                  id={character._id}
-                  photo={
-                    character.thumbnail.path +
-                    "." +
-                    character.thumbnail.extension
-                  }
-                  name={character.name}
-                  description={character.description}
-                  removeFavorite={removeFavorite}
-                  isFavorite={true}
-                />
-              </div>
-            );
-          })}
+          {favoriteCharacters.length ? (
+            favoriteCharacters.map((character) => {
+              return (
+                <div key={character._id}>
+                  <CharactersCard
+                    id={character._id}
+                    photo={
+                      character.thumbnail.path +
+                      "." +
+                      character.thumbnail.extension
+                    }
+                    name={character.name}
+                    description={character.description}
+                    removeFavorite={removeFavorite}
+                    isFavorite={true}
+                  />
+                </div>
+              );
+            })
+          ) : (
+            <div>
+              <p>Vous n'avez sélectionné aucun personnage favori</p>
+              <a href="/" className="choose-favorite-link">
+                Pourquoi ne pas allez en choisir un maintenant ?
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>
