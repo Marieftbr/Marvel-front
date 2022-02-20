@@ -54,6 +54,7 @@ const Character = (props) => {
                 <img
                   className="image-character-comics"
                   src={comic.thumbnail.path + "." + comic.thumbnail.extension}
+                  alt="comic cover"
                 ></img>
                 <span className="title-character-comics">{comic.title}</span>
                 <span className="description-character-comics">

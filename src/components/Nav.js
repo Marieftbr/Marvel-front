@@ -2,7 +2,6 @@ import logo from "../img/logo-marvel.png";
 import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
-  const favoris = false;
   const navigate = useNavigate();
   return (
     <div className="nav-wrapper">
